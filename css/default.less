@@ -28,6 +28,31 @@
     100% {-webkit-transform: rotate(360deg)}
 }
 
+@-webkit-keyframes updown {
+   	from {bottom: 10px;}
+    to {bottom: 30px;}
+}
+
+@-moz-keyframes updown {
+    from {bottom: 10px;}
+    to {bottom: 30px;}
+}
+
+@-ms-keyframes updown {
+    from {bottom: 10px;}
+    to {bottom: 30px;}
+}
+
+@-o-keyframes updown {
+    from {bottom: 10px;}
+    to {bottom: 30px;}
+}
+
+@keyframes updown {
+    from {bottom: 10px;}
+    to {bottom: 30px;}
+}
+
 html,body,div,h1,h2,h3,h4,h5,h6,p {
     margin: 0;
     padding: 0
@@ -62,6 +87,13 @@ body {
 	-ms-animation: rotate_all @time linear 0s infinite;
 	-o-animation: rotate_all @time linear 0s infinite;
 	animation: rotate_all @time linear 0s infinite;
+}
+.updown(@time: 5s){
+	-webkit-animation: updown @time linear 0s infinite;
+	-moz-animation: updown @time linear 0s infinite;
+	-ms-animation: updown @time linear 0s infinite;
+	-o-animation: updown @time linear 0s infinite;
+	animation: updown @time linear 0s infinite;
 }
 #loader {
 	position: absolute;
@@ -105,9 +137,10 @@ body {
 
 #arrow{
 	position: fixed;
-	bottom: 0;
-	width: 100px;
-	height: 100px;
+	bottom: 10px;
+	width: 52px;
+	height: 17px;
 	left: 50%;
-	margin-left: -50px;
+	margin-left: -26px;
+	.updown(0.8s);
 }
