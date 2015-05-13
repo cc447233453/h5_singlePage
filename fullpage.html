@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=640,user-scalable=no">
+	<meta name="HandheldFriendly" content="true"/>
+
+	<link rel="stylesheet/less" type="text/css" href="css/default.less" />
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="js/less.js"></script>
+<script type="text/javascript" src="js/jquery.transit.js"></script>
+
+<script type="text/javascript" src="js/imgLoader.js"></script>
+
+<script>
+$(document).ready(function() {
+
+	var assets=[];
+	$("img").each(function() {
+		assets.push($(this).attr("src"));
+	});
+	var imgLoad=new ImgLoader(assets);
+	imgLoad.progress(function(a,b,c){
+		var count=Math.round((b+c)*100/(a||1));
+		$("#loadprogress").html(count+"%");
+	});
+	imgLoad.completed(function(){
+		$("#loadprogress").html("100%");
+			$("#loader").transition({"opacity":0},800,function(){//"scale":5,
+				$(this).remove();
+		});
+	});
+	imgLoad.start();
+
+	$('#fullpage').fullpage({});
+	
+});
+</script>
+<body>
+
+	<div id="loader">
+		<div id="loadbar">
+			<img src="img/loading.png" alt="">
+		</div>
+		<div id="loadprogress">0%</div>
+	</div>
+
+	<div id="fullpage">
+		<div class="section"><img src="img/p1.png"></div>
+		<div class="section"><img src="img/p2.png"></div>
+		<div class="section"><img src="img/p3.png"></div>
+		<div class="section"><img src="img/p4.png"></div>
+		<div class="section"><img src="img/p5.png"></div>
+		<div class="section"><img src="img/p6.png"></div>
+		<div class="section"><img src="img/p7.png"></div>
+		<div class="section"><img src="img/p8.png"></div>
+	</div>
+
+
+</body>
+</html>

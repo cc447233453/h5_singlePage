@@ -1,0 +1,104 @@
+@-webkit-keyframes rotate_all {
+    0% {-webkit-transform: rotate(0deg)}
+    50% {-webkit-transform: rotate(180deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}
+
+@-moz-keyframes rotate_all {
+    0% {-webkit-transform: rotate(0deg)}
+    50% {-webkit-transform: rotate(180deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}
+
+@-ms-keyframes rotate_all {
+    0% {-webkit-transform: rotate(0deg)}
+    50% {-webkit-transform: rotate(180deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}
+
+@-o-keyframes rotate_all {
+    0% {-webkit-transform: rotate(0deg)}
+    50% {-webkit-transform: rotate(180deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}
+
+@keyframes rotate_all {
+    0% {-webkit-transform: rotate(0deg)}
+    50% {-webkit-transform: rotate(180deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}
+
+html,body,div,h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+    padding: 0
+}
+
+a {
+    text-decoration: none
+}
+
+ul,li {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: inherit
+}
+
+.text-shadow(@x: 2px; @y: 2px; @blur: 15px; @color: #999){
+	-webkit-text-shadow: @arguments;
+	-moz-text-shadow: @arguments;
+	-ms-text-shadow: @arguments;
+	-o-text-shadow: @arguments;
+	text-shadow: @arguments;
+}
+.rotate (@time: 5s){
+	-webkit-animation: rotate_all @time linear 0s infinite;
+	-moz-animation: rotate_all @time linear 0s infinite;
+	-ms-animation: rotate_all @time linear 0s infinite;
+	-o-animation: rotate_all @time linear 0s infinite;
+	animation: rotate_all @time linear 0s infinite;
+}
+#loader {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	z-index: 8;
+	background: #00aed8;
+	background-size: cover;
+
+	#loadbar {
+		position: absolute;
+		width: 77px;
+		height: 77px;
+		left: 50%;
+		margin-left: -33.5px;
+		top: 50%;
+		margin-top: -33.5px;
+		overflow: visible;
+		text-align: center;
+		.rotate(2s);
+	}
+
+	#loadprogress {
+		position: absolute;
+		width: 100%;
+		height: 40px;
+		left: 0;
+		top: 50%;
+		margin-top: 65px;
+		text-align: center;
+		font-size: 22px;
+		line-height: 40px;
+		font-style: italic;
+		color: #fff;
+		.text-shadow(2px; 5px);
+	}
+}
